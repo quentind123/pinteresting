@@ -77,10 +77,21 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
-Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
+  Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
 
   # Required for Heroku
   # Note to set this to your actual host
   config.action_mailer.default_url_options = { host: 'omr-pinteresting-qd.herokuapp.com' }
+
+  # Sets Paperclip to upload images to Amazon S3
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
 end
