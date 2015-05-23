@@ -1,7 +1,4 @@
-# One Month Rails
+# The Pinteresting app
 
-This is the pinteresting sample application for [*One Month Rails*](http://onemonthrails.com)
+This is the pinteresting sample application I designed for a course I have followed on [*One Month Rails*](http://onemonthrails.com)
 
-by Mattan Griffel
-
-Relevant course to handle Rails
